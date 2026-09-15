@@ -1,0 +1,7 @@
+database/cinebites.db
+__pycache__/
+*.pyc
+.env
+venv/
+# Ambiente virtual (não deve ir pro repositório)
+venv/
