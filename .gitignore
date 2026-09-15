@@ -5,3 +5,4 @@ __pycache__/
 venv/
 # Ambiente virtual (não deve ir pro repositório)
 venv/
+node_modules/ Salve o arquivo.
