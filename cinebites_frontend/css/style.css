@@ -1,0 +1,366 @@
+/* 
+==========================================================================
+   CINEBITES - STYLE.CSS (Vibe Cinema & Geladeira Virtual)
+========================================================================== 
+*/
+
+:root {
+  /* Cores exatas inspiradas no protótipo */
+  --bg-dark: #0B0E14;         /* Fundo quase preto */
+  --bg-panel: #141A29;        /* Azul bem escuro dos painéis */
+  --text-light: #F8F9FA;      /* Branco gelo */
+  --text-muted: #8B94A5;      /* Cinza azulado */
+  --brand-yellow: #F6B846;    /* Amarelo/Dourado do Cinebites */
+  --brand-red: #E63946;       /* Vermelho vibrante botão */
+  --card-border: #2A3655;     /* Borda azul escuro prateleiras */
+  
+  --font-title: 'League Gothic', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: var(--font-body);
+  padding-bottom: 120px; 
+}
+
+/* ================= HEADER ================= */
+.site-header {
+  background-color: var(--bg-dark);
+  border-bottom: 1px solid var(--card-border);
+  padding: 15px 5vw;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-area { display: flex; align-items: center; gap: 10px; }
+.logo-icon { font-size: 2rem; }
+.logo-title {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--text-light);
+  display: block;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+.logo-tag {
+  font-size: 0.65rem;
+  color: var(--brand-yellow);
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.header-nav { display: flex; gap: 30px; }
+.nav-item {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+}
+.nav-item.active { color: var(--brand-yellow); }
+
+/* ================= HERO & TEXTOS ================= */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
+
+.hero-section {
+  background-color: var(--bg-panel);
+  margin: 30px 5vw;
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+}
+
+.tag-estudio {
+  display: inline-block;
+  background-color: rgba(230, 57, 70, 0.15);
+  color: var(--brand-red);
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.hero-title {
+  font-family: var(--font-title);
+  font-size: 3.5rem;
+  color: var(--brand-yellow);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.hero-subtitle { color: var(--text-muted); font-size: 0.95rem; max-width: 700px; }
+
+/* ================= PRATELEIRAS (A Geladeira) ================= */
+.cabecalho-prateleiras {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 15px;
+}
+
+.cabecalho-prateleiras h2 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.dica-interacao { color: var(--text-muted); font-size: 0.85rem; }
+
+.prateleiras-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.grupo-categoria {
+  background-color: transparent;
+}
+
+.grupo-categoria__titulo {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--brand-yellow);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  display: inline-block;
+  background-color: rgba(246, 184, 70, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.chips-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+/* O "Card" do Ingrediente (Inspirado no Protótipo) */
+.chip {
+  background-color: var(--bg-panel);
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  
+  /* CORREÇÃO DE CONTRASTE: Força a cor branca e tira o cinza padrão de botão do navegador */
+  color: #FFFFFF;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.chip::before {
+  content: '✓';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: transparent;
+  transition: all 0.2s;
+}
+
+.chip-emoji {
+  font-size: 2.5rem;
+  display: block; /* Garante que o emoji ocupe o espaço correto */
+  margin-bottom: 5px;
+}
+
+.chip-nome {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #FFFFFF; /* Branco puro para saltar na tela escura */
+  text-align: center;
+  line-height: 1.2;
+}
+
+.chip-status {
+  font-size: 0.75rem;
+  color: #A0ABC0; /* Um cinza mais claro para dar leitura */
+  margin-top: 8px;
+}
+
+/* ================= BOTÃO CTA ================= */
+.cta-bar {
+  position: fixed;
+  bottom: 0; left: 0; width: 100%;
+  background-color: var(--bg-panel);
+  border-top: 1px solid var(--brand-yellow);
+  padding: 15px 0;
+  z-index: 100;
+}
+
+.cta-bar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta-bar__count { font-weight: 600; color: var(--brand-yellow); }
+
+.btn-vermelho {
+  background-color: var(--brand-red);
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+}
+
+.btn-vermelho:disabled {
+  background-color: var(--card-border);
+  box-shadow: none;
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* ================= INGRESSOS (RESULTADOS) ================= */
+.resultados-header { margin: 30px 0; }
+.section-title {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
+
+.btn-voltar {
+  background: none; border: none; color: var(--text-muted);
+  cursor: pointer; font-size: 0.9rem; margin-top: 30px;
+  display: flex; align-items: center; gap: 5px;
+}
+.btn-voltar:hover { color: var(--brand-yellow); }
+
+.ingressos-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 800px;
+}
+
+.ingresso {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de picote de ingresso na borda direita */
+.ingresso::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; height: 20px;
+  background-color: var(--bg-dark);
+  border-radius: 50%;
+  border-left: 1px solid var(--card-border);
+}
+
+.ingresso:hover {
+  border-color: var(--brand-yellow);
+  background-color: rgba(246, 184, 70, 0.05);
+}
+
+.ingresso__info { display: flex; flex-direction: column; gap: 5px;}
+.ingresso__prato { font-weight: 600; font-size: 1.1rem; }
+.ingresso__filme { font-size: 0.85rem; color: var(--text-muted); }
+
+.ingresso__canhoto {
+  background-color: rgba(246, 184, 70, 0.1);
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid rgba(246, 184, 70, 0.3);
+}
+
+.ingresso__score {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  color: var(--brand-yellow);
+}
+
+/* ================= TELA DE SESSÃO (DETALHE DO FILME) ================= */
+.sessao-hero {
+  display: flex;
+  gap: 30px;
+  padding: 40px 5vw;
+  background-color: var(--bg-panel);
+  border-bottom: 1px solid var(--brand-yellow);
+}
+
+.sessao-poster {
+  width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.sessao-prato {
+  font-family: var(--font-title);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--brand-yellow);
+  margin-top: 10px;
+}
+
+.sessao-corpo { max-width: 800px; margin: 40px auto; padding: 0 5vw; }
+.sessao-bloco { margin-bottom: 30px; }
+.sessao-bloco__titulo {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.sessao-cena {
+  border-left: 3px solid var(--brand-red);
+  padding-left: 15px;
+  font-style: italic;
+}
