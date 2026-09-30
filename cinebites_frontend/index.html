@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineBites — Receitas & Cinema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO CINEBITES (Fiel ao protótipo) -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <span class="logo-icon">🍿</span>
+                <div class="logo-text">
+                    <span class="logo-title">CINEBITES</span>
+                    <span class="logo-tag">CINEMA & GASTRONOMIA</span>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <!-- Usando ícones unicode/emojis para manter a vibe divertida do protótipo -->
+                <a href="#" class="nav-item active"><span class="nav-icon">🥫</span> GELADEIRA VIRTUAL</a>
+                <a href="#" class="nav-item"><span class="nav-icon">🎬</span> COMBOS & FILMES</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app">
+
+        <!-- ===================== TELA 1 — DESPENSA (PRATELEIRAS) ===================== -->
+        <section class="screen" id="screen-despensa" data-screen="despensa">
+            <div class="hero-section">
+                <div class="tag-estudio">🎬 ESTÚDIO CULINÁRIO - CENA 01</div>
+                <h1 class="hero-title">O QUE TEM NA SUA GELADEIRA HOJE?</h1>
+                <p class="hero-subtitle">Abra sua geladeira virtual e selecione os ingredientes em estoque. Nosso algoritmo projeta os pratos mais icônicos do cinema que você pode preparar exatamente agora.</p>
+            </div>
+
+            <div class="container despensa-container">
+                <div class="cabecalho-prateleiras">
+                    <h2>PRATELEIRAS DISPONÍVEIS</h2>
+                    <span class="dica-interacao">👆 Toque no card para alternar status</span>
+                </div>
+
+                <div id="ingredientes-status" class="status-msg" hidden></div>
+                
+                <!-- AQUI ENTRAM AS PRATELEIRAS GERADAS PELO JS -->
+                <div id="ingredientes-lista" class="prateleiras-grid"></div>
+            </div>
+
+            <!-- BARRA DE AÇÃO (Flutuante, mas com o botão vermelho do protótipo) -->
+            <div class="cta-bar">
+                <div class="cta-bar-content">
+                    <span id="contagem-selecionados" class="cta-bar__count">0 selecionados</span>
+                    <button id="btn-buscar-match" class="btn btn-vermelho" disabled>
+                        ENCONTRAR PRATOS & CENAS 🎬
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== TELA 2 — RESULTADOS (INGRESSOS) ===================== -->
+        <section class="screen" id="screen-resultados" data-screen="resultados" hidden>
+            <div class="container">
+                <button class="btn-voltar" data-voltar-para="despensa">
+                    <span>←</span> Voltar para a Geladeira
+                </button>
+                
+                <div class="resultados-header">
+                    <h2 class="section-title">🎫 SUA SESSÃO GASTRONÔMICA</h2>
+                    <p class="section-subtitle">Prontos para maratonar. Estas opções combinam com sua despensa.</p>
+                </div>
+
+                <div id="resultados-status" class="status-msg" hidden></div>
+                
+                <!-- AQUI ENTRAM OS INGRESSOS -->
+                <div id="resultados-lista" class="ingressos-layout"></div>
+            </div>
+        </section>
+
+        <!-- ===================== TELA 3 — SESSÃO (DETALHE) ===================== -->
+        <section class="screen screen--sessao" id="screen-sessao" data-screen="sessao" hidden>
+            <div id="sessao-conteudo">
+                <!-- O JavaScript injeta o pôster, título e receita aqui -->
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
